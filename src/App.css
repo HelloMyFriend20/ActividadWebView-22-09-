@@ -1,42 +1,143 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* === Estilos base (móvil por defecto) === */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 90%;
+  max-width: 700px;
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: 600;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+h2 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.camara {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+video {
+  width: 100%;
+  display: block;
+}
+
+.botones {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Botones reutilizables */
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+button.iniciar { background: #4facfe; }
+button.tomar   { background: #00c851; }
+button.detener { background: #ff4444; }
+button.switch  { background: #33b5e5; }
+
+.galeria {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 15px;
+  justify-items: center;
+}
+
+.img-container {
+  position: relative;
+}
+
+.galeria img {
+  width: 100%;
+  max-width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid #eee;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.eliminar {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ff4444;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  font-size: 0.9rem;
+  line-height: 26px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* === Estilos para tablet/PC (ancho >= 768px) === */
+@media (min-width: 768px) {
+  body {
+    background: white; /* fondo neutro en desktop */
+    display: block;    /* la app ocupa toda la pantalla */
   }
-  to {
-    transform: rotate(360deg);
+
+  .container {
+    max-width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 40px;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .camara {
+    max-width: 800px;
   }
-}
 
-.card {
-  padding: 2em;
-}
+  .galeria img {
+    max-width: 200px;
+    height: 200px;
+  }
 
-.read-the-docs {
-  color: #888;
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
 }
